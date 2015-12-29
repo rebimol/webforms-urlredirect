@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Mageme_UrlRedirect>
+            <version>0.1.0</version>
+        </Mageme_UrlRedirect>
+    </modules>
+    <global>
+        <models>
+            <mageme_urlredirect>
+                <class>Mageme_UrlRedirect_Model</class>
+                <resourceModel>mageme_urlredirect_resource</resourceModel>
+            </mageme_urlredirect>
+            <mageme_urlredirect_resource>
+                <class>Mageme_UrlRedirect_Model_Resource</class>
+            </mageme_urlredirect_resource>
+        </models>
+        <events>
+            <webforms_controllers_index_iframe_action>
+                <observers>
+                    <mageme_urlredirect>
+                        <class>Mageme_UrlRedirect_Model_Observer</class>
+                        <type>singleton</type>
+                        <method>sendUrl</method>
+                    </mageme_urlredirect>
+                </observers>
+            </webforms_controllers_index_iframe_action>
+        </events>
+    </global>
+</config>
